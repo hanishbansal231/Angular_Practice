@@ -62,7 +62,7 @@ const resolvers = {
         createUser: async (_, { input }) => {
             const { firstName, lastName, email, password } = input;
 
-            if ([firstName, lastName, email, password].some((value) => value === '')) {
+            if ([firstName, lastName, email, password].some((value) => value.trim() === '')) {
                 const error = new Error('All fields are required');
                 error.statusCode = 400; // Bad Request
                 throw error;
