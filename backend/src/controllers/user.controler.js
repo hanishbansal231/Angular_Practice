@@ -88,6 +88,7 @@ const resolvers = {
                 lastName,
                 email,
                 password, // Assuming this is already hashed in the pre-save middleware
+                
             });
 
             await user.save();
