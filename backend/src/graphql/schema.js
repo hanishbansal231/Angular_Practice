@@ -6,7 +6,8 @@ const typeDefs = gql`
     firstName: String!
     lastName: String!
     email: String!
-    password: String!
+    password: String
+    access_token:String
   }
 
   input CreateUserInput {
@@ -16,12 +17,21 @@ const typeDefs = gql`
     password: String!
   }
 
+  input LoginUserInput {
+    email: String!
+    password: String!
+  }
+
+
   type Query {
-    hello: String!
-}
+    getUserById(input: ID!): User!
+  }
 
   type Mutation {
     createUser(input: CreateUserInput!): User!
+  }
+  type Mutation {
+    loginUser(input: LoginUserInput!): User!
   }
 `;
 
