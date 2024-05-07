@@ -140,14 +140,14 @@ const resolvers = {
     },
     Query: {
         getUserById: async (_, { input }) => {
-            
+
             if (!input) {
                 const error = new Error('Id not found');
                 error.statusCode = 400; // Bad Request
                 throw error;
-            } 
+            }
 
-            const user = await User.findById({_id:input});
+            const user = await User.findById({ _id: input });
 
             if (!user) {
                 throw new Error('User is not register please register this account...');
